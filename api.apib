@@ -15,6 +15,9 @@ Get a json authentication token.
     + Attributes(object)
         + token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U'
 
++ Response 401 (application/json)
+    + Attributes(UnauthorizedException)
+
 ### PUT /register
 
 + Request (application/json)
@@ -23,6 +26,9 @@ Get a json authentication token.
         + password - bcrypt encrypted password
 
 + Response 204
+
++ Response 400 (application/json)
+    + Attributes(BadRequestException)
 
 ## /suggestion
 
@@ -39,4 +45,17 @@ Create a suggestion for the developer to read.
     + Attributes(object)
         + id: 1
 
-### DELETE
++ Response 400 (application/json)
+    + Attributes(BadRequestException)
+
+## Data Structures
+
+### BadRequestException (object)
++ code: 400 (number) - The code for the response
++ message: `A request with invalid format is in use.` (string) - Exception message
++ name: `Bad Request` (string) - The name of the exception.
+
+### UnauthorizedException (object) 
++ code: 401 (number) - The code for the response
++ message: `You are unauthorized to login into this api` (string) - Exception message
++ name: `Unauthorized` (string) - The name of the exception.
