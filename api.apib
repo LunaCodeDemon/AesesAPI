@@ -1,0 +1,42 @@
+# AesesAPI
+The goal of this API is to give aeses additional features, like suggestions.
+For now aglio can be used to preview this documentation file.
+
+## Group Login System
+### POST /login
+Get a json authentication token.
+
++ Request (application/json)
+    + Attributes(object)
+        + username: `phil`(string)
+        + password (string) - bcrypt encrypted password.
+
++ Response 200 (application/json)
+    + Attributes(object)
+        + token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U'
+
+### PUT /register
+
++ Request (application/json)
+    + Attributes(object)
+        + username: `phil` (string)
+        + password - bcrypt encrypted password
+
++ Response 204
+
+## /suggestion
+
+### PUT
+Create a suggestion for the developer to read.
+
++ Request (application/json)
+    + Attributes(object)
+        + message: `I have a problem with Aeases, can you add ...` (string)
+        + usertag: `User#1234` (string)
+
+
++ Response 200 (application/json)
+    + Attributes(object)
+        + id: 1
+
+### DELETE
